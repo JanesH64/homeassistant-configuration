@@ -1,0 +1,171 @@
+ac_janes_power_on:
+  alias: AC Janes Power On
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Power_on
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:power
+ac_janes_power_off:
+  alias: AC Janes Power Off
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Power_off
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:power
+ac_janes_temperature_up:
+  alias: AC Janes Sleep
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Sleep
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:power-sleep
+ac_janes_turbo:
+  alias: AC Janes Turbo
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Turbo
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:turbine
+ac_janes_fan:
+  alias: AC Janes Fan 1
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Fan 1
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:fan-speed-1
+ac_janes_swing:
+  alias: AC Janes Swing
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Swing
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:arrow-up-down
+ac_janes_direct:
+  alias: AC Janes Direct
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Direct
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:forward
+ac_janes_led:
+  alias: AC Janes LED
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Led
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:led-on
+ac_janes_follow_me:
+  alias: AC Janes Follow me
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Follow_me
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:account
+rolladen_janes_up:
+  alias: Rolladen Janes Up
+  sequence:
+  - service: remote.send_command
+    data:
+      device: Rolladen_Janes
+      command: Up
+      hold_secs: 1
+      num_repeats: 2
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:arrow-up-bold
+rolladen_janes_stop:
+  alias: Rolladen Janes Stop
+  sequence:
+  - service: remote.send_command
+    data:
+      device: Rolladen_Janes
+      command: Stop
+      hold_secs: 1
+      num_repeats: 2
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:stop
+rolladen_janes_down:
+  alias: Rolladen Janes Down
+  sequence:
+  - service: remote.send_command
+    data:
+      device: Rolladen_Janes
+      command: Down
+      hold_secs: 1
+      num_repeats: 2
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:arrow-down-bold
+ac_janes_fan_2:
+  alias: AC Janes Fan 2
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Fan 2
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:fan-speed-2
+ac_janes_fan_3:
+  alias: AC Janes Fan 3
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Fan 3
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:fan-speed-3
+ac_janes_fan_4:
+  alias: AC Janes Fan Auto
+  sequence:
+  - service: remote.send_command
+    data:
+      device: AC_Janes
+      command: Fan Auto
+    target:
+      device_id: 0a29c110903b577654d2d93ffef3546c
+  mode: single
+  icon: mdi:fan-auto

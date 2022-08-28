@@ -1,0 +1,8 @@
+custom_components/alexa_media
+custom_components/hacs
+*.log
+home-assistant.log.1
+home-assistant.log.fault
+home-assistant_v2.db
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal

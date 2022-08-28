@@ -1,0 +1,125 @@
+#Open
+- id: 5dc6111324584f6ab9219f979cf63ab3
+  alias: Open shutters
+  description: ''
+  trigger: []
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.rolladen_janes_up
+  - device_id: ba68377afd28702a40bc093fd7ce7d87
+    domain: mobile_app
+    type: notify
+    message: Opening window shutters
+  mode: single
+
+#Close
+- id: 1da3aabe82e44fa18e4f5780a9007c3d
+  alias: Close Shutters
+  description: ''
+  trigger: []
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.rolladen_janes_down
+  - device_id: ba68377afd28702a40bc093fd7ce7d87
+    domain: mobile_app
+    type: notify
+    message: Opening window shutters
+  mode: single
+
+#Warm days
+- id: '1661595645503'
+  alias: Close shutters on warm days
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - weather.forecast_home
+    attribute: temperature
+    from: '25'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  condition:
+  - condition: time
+    before: '20:00:00'
+    after: 08:00:00
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+  - condition: state
+    entity_id: input_boolean.windows_shut
+    state: 'off'
+  action:
+  - service: automation.trigger
+    entity_id: automation.close_shutters
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.windows_shut
+    data: {}
+  mode: single
+
+#Close toggle
+- id: 4a75972b5039461da965b9e286b1a84b
+  alias: Close shutters toggle
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.windows_shut
+    from: 'off'
+    to: 'on'
+  action:
+  - service: automation.trigger
+    entity_id: automation.close_shutters
+  mode: single
+
+#Open toggle
+- id: 2f3f6f891d1f45f4a93c1f7715326ec0
+  alias: Open shutters toggle
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.windows_shut
+    from: 'on'
+    to: 'off'
+  action:
+  - service: automation.trigger
+    entity_id: automation.open_shutters
+  mode: single
+
+#Wake up
+- id: 46c166648d244121a1a87476217da8be
+  alias: Open shutters at wake up
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.wake_up_time
+  action:
+  - service: automation.trigger
+    entity_id: automation.open_shutters
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.windows_shut
+    data: {}
+  mode: single
+
+#Sleep
+- id: 241e072d249c42bfa0f049d24e801424
+  alias: Close shutters at sleep time
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.sleep_time
+  action:
+  - service: automation.trigger
+    entity_id: automation.close_shutters
+  mode: single
